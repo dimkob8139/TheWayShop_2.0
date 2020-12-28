@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TheWayShop_2._0.Models;
 
-namespace TheWayShop.Interfaces
+namespace TheWayShop_2._0.Interfaces
 {
     public interface IAllThings<TEntity>:IDisposable where TEntity:class
     {

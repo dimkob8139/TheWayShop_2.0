@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TheWayShop_2._0.Models;
 
-namespace TheWayShop.DB
+namespace TheWayShop_2._0.DB
 {
     public class AppDbContext:DbContext
     {
@@ -13,8 +14,8 @@ namespace TheWayShop.DB
             Database.EnsureCreated();
         }
 
-        //public DbSet<Thing> Thing { get; set; }
-        //public DbSet<Category> Category { get; set; }
+        public DbSet<Thing> Thing { get; set; }
+        public DbSet<Category> Category { get; set; }
        
         //public DbSet<Role> Roles { get; set; }
         //public DbSet<CartItem> CartItem { get; set; }

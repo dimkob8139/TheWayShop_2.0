@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TheWayShop.DB;
+using TheWayShop_2._0.DB;
 
 namespace TheWayShop_2._0
 {
@@ -57,6 +57,12 @@ namespace TheWayShop_2._0
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                AppDbContext context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                AppDbInitializer.Initial(context);
+            }
         }
+
     }
 }
