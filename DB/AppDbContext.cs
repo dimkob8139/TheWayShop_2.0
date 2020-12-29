@@ -16,6 +16,7 @@ namespace TheWayShop_2._0.DB
 
         public DbSet<Thing> Thing { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<CategoryItem> CategoryItems { get; set; }
        
         //public DbSet<Role> Roles { get; set; }
         //public DbSet<CartItem> CartItem { get; set; }

@@ -9,36 +9,35 @@ using TheWayShop_2._0.Models;
 
 namespace TheWayShop_2._0.Repositories
 {
-    public class CategoryRepository : IAllCategories<Category>
+    public class CategoryItemRepository : IAllCategoryItems<CategoryItem>
     {
         private readonly AppDbContext context;
-        private readonly DbSet<Category> categories;
+        private readonly DbSet<CategoryItem> categoryItems;
 
-        public CategoryRepository(AppDbContext context, DbSet<Category> categories)
+        public CategoryItemRepository(AppDbContext context,DbSet<CategoryItemRepository> categoryItems)
         {
             this.context = context;
-            this.categories = this.context.Category;
+            this.categoryItems = this.context.CategoryItems;
         }
 
+        public IEnumerable<CategoryItem> CategoryItems => context.CategoryItems;
 
-        public IEnumerable<Category> Categories => context.Category.Include(c => c.categoryItem);
-
-        public void Create(Category entity)
+        public void Create(CategoryItem entity)
         {
-            context.Category.Add(entity);
+            context.CategoryItems.Add(entity);
         }
 
         public void Delete(int id)
         {
-            var category = context.Category.Find(id);
-            Delete(category);
+            var categoryItem = context.CategoryItems.Find(id);
+            Delete(categoryItem);
         }
 
-        public void Delete(Category entity)
+        public void Delete(CategoryItem entity)
         {
             if (context.Entry(entity).State == EntityState.Detached)
             {
-                context.Category.Attach(entity);
+                context.CategoryItems.Attach(entity);
             }
             context.Entry(entity).State = EntityState.Deleted;
         }
@@ -48,9 +47,9 @@ namespace TheWayShop_2._0.Repositories
             throw new NotImplementedException();
         }
 
-        public Category getObjectCategory(int categoryId)
+        public CategoryItem getObjectCategoryItem(int categoryItemId)
         {
-            return context.Category.FirstOrDefault(p => p.id == categoryId);
+            return context.CategoryItems.FirstOrDefault(p => p.id == categoryItemId);
         }
 
         public void Save()
@@ -58,7 +57,7 @@ namespace TheWayShop_2._0.Repositories
             context.SaveChanges();
         }
 
-        public void Update(Category entity)
+        public void Update(CategoryItem entity)
         {
             context.Entry(entity).State = EntityState.Modified;
         }

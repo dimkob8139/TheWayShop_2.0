@@ -25,6 +25,9 @@ namespace TheWayShop_2._0.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("categoryItemId")
+                        .HasColumnType("int");
+
                     b.Property<string>("description")
                         .HasColumnType("nvarchar(max)");
 
@@ -33,7 +36,27 @@ namespace TheWayShop_2._0.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("categoryItemId");
+
                     b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("TheWayShop_2._0.Models.CategoryItem", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("CategoryItems");
                 });
 
             modelBuilder.Entity("TheWayShop_2._0.Models.Thing", b =>
@@ -45,6 +68,9 @@ namespace TheWayShop_2._0.Migrations
 
                     b.Property<int>("categoryId")
                         .HasColumnType("int");
+
+                    b.Property<string>("color")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("description")
                         .HasColumnType("nvarchar(max)");
@@ -58,11 +84,25 @@ namespace TheWayShop_2._0.Migrations
                     b.Property<int>("price")
                         .HasColumnType("int");
 
+                    b.Property<string>("size")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("id");
 
                     b.HasIndex("categoryId");
 
                     b.ToTable("Thing");
+                });
+
+            modelBuilder.Entity("TheWayShop_2._0.Models.Category", b =>
+                {
+                    b.HasOne("TheWayShop_2._0.Models.CategoryItem", "categoryItem")
+                        .WithMany()
+                        .HasForeignKey("categoryItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("categoryItem");
                 });
 
             modelBuilder.Entity("TheWayShop_2._0.Models.Thing", b =>

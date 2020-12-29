@@ -2,12 +2,12 @@
 
 namespace TheWayShop_2._0.Migrations
 {
-    public partial class Thing : Migration
+    public partial class Things : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "CategoryItems",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -17,7 +17,28 @@ namespace TheWayShop_2._0.Migrations
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_CategoryItems", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Category",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    categoryItemId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
                     table.PrimaryKey("PK_Category", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Category_CategoryItems_categoryItemId",
+                        column: x => x.categoryItemId,
+                        principalTable: "CategoryItems",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -29,6 +50,8 @@ namespace TheWayShop_2._0.Migrations
                     name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     img = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    color = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    size = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     price = table.Column<int>(type: "int", nullable: false),
                     categoryId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -44,6 +67,11 @@ namespace TheWayShop_2._0.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Category_categoryItemId",
+                table: "Category",
+                column: "categoryItemId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Thing_categoryId",
                 table: "Thing",
                 column: "categoryId");
@@ -56,6 +84,9 @@ namespace TheWayShop_2._0.Migrations
 
             migrationBuilder.DropTable(
                 name: "Category");
+
+            migrationBuilder.DropTable(
+                name: "CategoryItems");
         }
     }
 }

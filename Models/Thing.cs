@@ -8,10 +8,19 @@ namespace TheWayShop_2._0.Models
     public class Thing
     {
         public int id { get; set; }
+
         public string name { get; set; }
+
         public string description { get; set; }
+
         public string img { get; set; }
+
+        public string color { get; set; }
+
+        public string  size { get; set; }
+
         public ushort price { get; set; }
+
         public int categoryId { get; set; }
 
         public virtual Category category { get; set; }

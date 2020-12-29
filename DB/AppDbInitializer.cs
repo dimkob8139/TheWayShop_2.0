@@ -11,6 +11,11 @@ namespace TheWayShop_2._0.DB
     {
         public static void Initial(AppDbContext context)
         {
+            //if (!context.CategoryItems.Any())
+            //{
+            //    context.CategoryItems.AddRange(CategoryItems.Select(c => c.Value));
+            //}
+
             if (!context.Category.Any())
             {
                 context.Category.AddRange(Categories.Select(c => c.Value));
@@ -21,13 +26,15 @@ namespace TheWayShop_2._0.DB
                 context.AddRange(
                     new Thing
                     {
-                        id = 1,
+
                         name = "shirt",
                         description = "a very great shirt",
                         img = "~/images/shirt-img.jpg",
+                        color = "brown",
+                        size = "L",
                         price = 250,
-                        categoryId=1,
-                        category = Categories["Shirts"]
+                        categoryId = 1,
+                        category = Categories["Top"]
 
                     },
                     new Thing
@@ -35,29 +42,18 @@ namespace TheWayShop_2._0.DB
                         name = "shoes",
                         description = "a very great men shoes",
                         img = "~/images/shoes-img.jpg",
+                        color = "black",
+                        size ="S",
                         price = 890,
-                        categoryId=2,
-                        category = Categories["Shoes"]
+                        categoryId = 2,
+                        category = Categories["Bottom"]
                     }
 
 
                     );
             }
             context.SaveChanges();
-            //if(!context.User.Any())
-            //{
-            //    context.AddRange(
-            //        new User
-            //        {
-            //            id = 1,
-            //            login="admin",
-            //            password="admin",
-            //            email="dimkob8139@gmail.com"
-            //        }
 
-            //        ) ;
-            //}
-            //context.SaveChanges();
 
         }
         private static Dictionary<string, Category> category;
@@ -69,14 +65,33 @@ namespace TheWayShop_2._0.DB
                 {
                     var list = new Category[]
                     {
-                       new Category{name="Shirts",description="Very nice shirts"},
-                       new Category{name="Shoes",description="Very nice shoes"}
+                       new Category{name="Top",description="Cloth for top",categoryItemId=1,categoryItem=CategoryItems["Shirts"]},
+                       new Category{name="Bottom",description="Cloth for bottom",categoryItemId=2,categoryItem=CategoryItems["Shoes"]}
                     };
                     category = new Dictionary<string, Category>();
                     foreach (Category el in list)
                         category.Add(el.name, el);
                 }
                 return category;
+            }
+        }
+        private static Dictionary<string, CategoryItem> categoryItem;
+        public static Dictionary<string, CategoryItem> CategoryItems
+        {
+            get
+            {
+                if (categoryItem == null)
+                {
+                    var list = new CategoryItem[]
+                    {
+                       new CategoryItem{name="Shirts",description="Very nice shirts"},
+                       new CategoryItem{name="Shoes",description="Very nice shoes"}
+                    };
+                    categoryItem = new Dictionary<string, CategoryItem>();
+                    foreach (CategoryItem el in list)
+                        categoryItem.Add(el.name, el);
+                }
+                return categoryItem;
             }
         }
     }
