@@ -11,10 +11,10 @@ namespace TheWayShop_2._0.DB
     {
         public static void Initial(AppDbContext context)
         {
-            //if (!context.CategoryItems.Any())
-            //{
-            //    context.CategoryItems.AddRange(CategoryItems.Select(c => c.Value));
-            //}
+            if (!context.CategoryItems.Any())
+            {
+                context.CategoryItems.AddRange(CategoryItems.Select(c => c.Value));
+            }
 
             if (!context.Category.Any())
             {
