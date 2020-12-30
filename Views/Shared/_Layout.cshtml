@@ -67,38 +67,38 @@
                         <div class="custom-select-box">
                             <div class="btn-group bootstrap-select show-tick form-control">
                                 @*<button type="button" class="btn dropdown-toggle btn-default btn-light" data-toggle="dropdown" role="button" data-id="basic" title="¥ JPY">
-                                    <span class="filter-option pull-left">UAH</span>
-                                    &nbsp;
-                                    <span class="bs-caret">
-                                        <span class="caret">
+                                        <span class="filter-option pull-left">UAH</span>
+                                        &nbsp;
+                                        <span class="bs-caret">
+                                            <span class="caret">
 
+                                            </span>
                                         </span>
-                                    </span>
-                                </button>*@
+                                    </button>*@
                                 @*<div class="dropdown-menu open" role="combobox">
-                                    <div class="dropdown-menu inner" role="listbox" aria-expanded="false">
-                                        <a tabindex="0" class="dropdown-item selected" data-original-index="0">
-                                            <span class="dropdown-item-inner " data-tokens="null" role="option" tabindex="0" aria-disabled="false" aria-selected="true">
-                                                <span class="text">UAH</span>
-                                                <span class="fa fa-check check-mark">
+                                        <div class="dropdown-menu inner" role="listbox" aria-expanded="false">
+                                            <a tabindex="0" class="dropdown-item selected" data-original-index="0">
+                                                <span class="dropdown-item-inner " data-tokens="null" role="option" tabindex="0" aria-disabled="false" aria-selected="true">
+                                                    <span class="text">UAH</span>
+                                                    <span class="fa fa-check check-mark">
+                                                    </span>
                                                 </span>
-                                            </span>
-                                        </a>
-                                        <a tabindex="0" class="dropdown-item" data-original-index="1">
-                                            <span class="dropdown-item-inner " data-tokens="null" role="option" tabindex="0" aria-disabled="false" aria-selected="false">
-                                                <span class="text">$ USD</span>
-                                                <span class="fa fa-check check-mark">
+                                            </a>
+                                            <a tabindex="0" class="dropdown-item" data-original-index="1">
+                                                <span class="dropdown-item-inner " data-tokens="null" role="option" tabindex="0" aria-disabled="false" aria-selected="false">
+                                                    <span class="text">$ USD</span>
+                                                    <span class="fa fa-check check-mark">
+                                                    </span>
                                                 </span>
-                                            </span>
-                                        </a>
-                                        <a tabindex="0" class="dropdown-item" data-original-index="2">
-                                            <span class="dropdown-item-inner " data-tokens="null" role="option" tabindex="0" aria-disabled="false" aria-selected="false">
-                                                <span class="text">€ EUR</span>
-                                                <span class="fa fa-check check-mark"></span>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>*@
+                                            </a>
+                                            <a tabindex="0" class="dropdown-item" data-original-index="2">
+                                                <span class="dropdown-item-inner " data-tokens="null" role="option" tabindex="0" aria-disabled="false" aria-selected="false">
+                                                    <span class="text">€ EUR</span>
+                                                    <span class="fa fa-check check-mark"></span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>*@
                                 <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD" tabindex="-98">
                                     <option>$ USD</option>
                                     <option>€ EUR</option>
@@ -210,7 +210,7 @@
                                     <li><a href="shop-detail.html">Shop Detail</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="service.html">Our Service</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Services">Our Service</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
                         </ul>
                     </div>
@@ -235,17 +235,17 @@
                     <li class="cart-box">
                         <ul class="cart-list">
                             <li>
-                                <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt=""></a>
+                                <a href="#" class="photo"><img src="~/images/img-pro-01.jpg" class="cart-thumb" alt=""></a>
                                 <h6><a href="#">Delica omtantur </a></h6>
                                 <p>1x - <span class="price">$80.00</span></p>
                             </li>
                             <li>
-                                <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt=""></a>
+                                <a href="#" class="photo"><img src="~/images/img-pro-02.jpg" class="cart-thumb" alt=""></a>
                                 <h6><a href="#">Omnes ocurreret</a></h6>
                                 <p>1x - <span class="price">$60.00</span></p>
                             </li>
                             <li>
-                                <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt=""></a>
+                                <a href="#" class="photo"><img src="~/images/img-pro-03.jpg" class="cart-thumb" alt=""></a>
                                 <h6><a href="#">Agam facilisis</a></h6>
                                 <p>1x - <span class="price">$40.00</span></p>
                             </li>
@@ -272,6 +272,250 @@
 
         @RenderBody()
 
+        <div class="instagram-box">
+            <div class="main-instagram owl-carousel owl-theme owl-loaded owl-drag">
+
+                <div class="owl-stage-outer">
+                    <div class="owl-stage" style="transform: translate3d(-1503px, 0px, 0px); transition: all 0.25s ease 0s; width: 3555px;">
+                        <div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-03.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-04.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-05.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-06.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-07.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-08.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-09.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-05.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-01.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-02.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-03.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-04.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-05.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-06.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-07.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-08.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-09.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-05.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned active" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-01.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-02.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-03.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-04.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-05.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-06.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-07.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 136.7px;">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="~/images/instagram-img-08.jpg" alt="">
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="fas fa-arrow-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="fas fa-arrow-right"></i></button></div><div class="owl-dots disabled"></div>
+            </div>
+        </div>
         <footer>
             <div class="footer-main">
                 <div class="container">
