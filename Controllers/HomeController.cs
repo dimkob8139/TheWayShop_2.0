@@ -36,6 +36,12 @@ namespace TheWayShop_2._0.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult ContactUs()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

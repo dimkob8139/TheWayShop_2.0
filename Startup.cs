@@ -10,6 +10,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TheWayShop_2._0.DB;
+using TheWayShop_2._0.Interfaces;
+using TheWayShop_2._0.Models;
+using TheWayShop_2._0.Repositories;
 
 namespace TheWayShop_2._0
 {
@@ -28,7 +31,24 @@ namespace TheWayShop_2._0
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connection));
 
+            services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddControllersWithViews();
+             //services.AddTransient<IAllThings<Thing>, ThingRepository>();
+            //services.AddSingleton(typeof(IAllThings<>), typeof(ThingRepository));
+            //services.AddScoped(typeof(IAllThings<Thing>),typeof(ThingRepository));
+
+            //services.AddScoped(typeof(IAllCategories<>), typeof(CategoryRepository));
+            //services.AddScoped(typeof(IAllCategoryItems<>), typeof(CategoryItemRepository));
+
+            services.AddMvc();
+
+            services.AddMvcCore();
+
+            services.AddMemoryCache();
+            services.AddSession();
+            services.AddRazorPages();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,11 +77,11 @@ namespace TheWayShop_2._0
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            using (var scope = app.ApplicationServices.CreateScope())
-            {
-                AppDbContext context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-                AppDbInitializer.Initial(context);
-            }
+            //using (var scope = app.ApplicationServices.CreateScope())
+            //{
+            //    AppDbContext context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            //    AppDbInitializer.Initial(context);
+            //}
         }
 
     }

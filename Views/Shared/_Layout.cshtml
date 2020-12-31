@@ -153,7 +153,7 @@
                                                 <div class="content">
                                                     <ul class="menu-col">
                                                         <li><a href="shop.html">Jackets</a></li>
-                                                        <li><a href="shop.html">Shirts</a></li>
+                                                        <li><a asp-controller="Shop" asp-action="ShirtList">Shirts</a></li>
                                                         <li><a href="shop.html">Sweaters &amp; Cardigans</a></li>
                                                         <li><a href="shop.html">T-shirts</a></li>
                                                     </ul>
@@ -176,7 +176,7 @@
                                                 <h6 class="title">Clothing</h6>
                                                 <div class="content">
                                                     <ul class="menu-col">
-                                                        <li><a href="shop.html">Top Wear</a></li>
+                                                        <li><a asp-controller="Shop" asp-action="ShirtList">Top Wear</a></li>
                                                         <li><a href="shop.html">Party wear</a></li>
                                                         <li><a href="shop.html">Bottom Wear</a></li>
                                                         <li><a href="shop.html">Indian Wear</a></li>
@@ -211,7 +211,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Services">Our Service</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="ContactUs">Contact Us</a></li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->

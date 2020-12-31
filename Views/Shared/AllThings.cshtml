@@ -1,0 +1,24 @@
+﻿@model TheWayShop_2._0.Models.Thing
+
+<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+    <div class="products-single fix">
+        <div class="box-img-hover">
+            <div class="type-lb">
+                <p class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SALE!!</font></font></p>
+            </div>
+            <img src="@Model.img" class="img-fluid" alt="img">
+            <div class="mask-icon">
+                <ul>
+                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="View"><i class="fas fa-eye"></i></a></li>
+                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                </ul>
+                <a class="cart" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Add to Cart</font></font></a>
+            </div>
+        </div>
+        <div class="why-text">
+            <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.description</font></font></h4>
+            <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.price</font></font></h5>
+        </div>
+    </div>
+</div>
