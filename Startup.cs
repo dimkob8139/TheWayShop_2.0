@@ -33,12 +33,7 @@ namespace TheWayShop_2._0
 
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddControllersWithViews();
-             //services.AddTransient<IAllThings<Thing>, ThingRepository>();
-            //services.AddSingleton(typeof(IAllThings<>), typeof(ThingRepository));
-            //services.AddScoped(typeof(IAllThings<Thing>),typeof(ThingRepository));
-
-            //services.AddScoped(typeof(IAllCategories<>), typeof(CategoryRepository));
-            //services.AddScoped(typeof(IAllCategoryItems<>), typeof(CategoryItemRepository));
+            
 
             services.AddMvc();
 

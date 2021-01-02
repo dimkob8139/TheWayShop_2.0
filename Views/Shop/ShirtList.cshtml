@@ -1,10 +1,10 @@
 ﻿@using TheWayShop_2._0.Models
 
-<div class="container"
-     @{
-         foreach (Thing thing in Model.allThings)
-         {
-             @await Html.PartialAsync("AllThings", thing) 
-         }
-         }
+<div class="row">
+    @{
+        foreach (Thing thing in Model.allThings)
+        {
+            @await Html.PartialAsync("AllThings", thing)
+        }
+    }
 </div>
