@@ -1,0 +1,57 @@
+﻿@model TheWayShop_2._0.ViewModels.ThingViewModel
+{
+@ViewBag.Title="Create"
+}
+
+@using (Html.BeginForm("Create", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div asp - validation - summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Thing.name, "name")<br />
+        @Html.EditorFor(m => m.Thing.name, "name")<br />
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Thing.description, "description")<br />
+        @Html.EditorFor(m => m.Thing.description, "description")<br />
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Thing.price, "price")<br />
+        @Html.EditorFor(m => m.Thing.price, "price")<br />
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Thing.color, "coplor")<br />
+        @Html.EditorFor(m => m.Thing.color, "color")<br />
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Thing.size, "size")<br />
+        @Html.EditorFor(m => m.Thing.size, "size")<br />
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Thing.categoryId, "categoryId")<br />
+        @Html.EditorFor(m => m.Thing.categoryId, "categoryId")<br />
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Thing.categoryId, "Select category")<br />
+        @Html.DropDownListFor(m => m.Thing.categoryId, ViewBag.Category as SelectList)<br />
+
+    </div>
+    <div class="form-group">
+        @Html.EditorFor(m => m.Thing.img, "UploadedFile", new { type = "file" })
+        <input type="file" name="UploadedFile" value="Выбрать" />
+
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+
+    <hr />
+
+    @Html.ActionLink("Back to List", "Index", "Admin")
+
+}

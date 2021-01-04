@@ -159,5 +159,9 @@ C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Shared\A
 C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Shop\ShirtList.cshtml.g.cs
 C:\Users\dimko\source\repos\TheWayShop_2.0\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\dimko\source\repos\TheWayShop_2.0\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
 C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\Categories.cshtml.g.cs
+C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
+C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\Details.cshtml.g.cs
+C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\DetailsCategory.cshtml.g.cs
+C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\Create.cshtml.g.cs
+C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\CreateCategory.cshtml.g.cs

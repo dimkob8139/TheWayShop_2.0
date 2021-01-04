@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<TheWayShop_2._0.Models.Thing>
 
-<p>
-    <a  asp-action="Create">Create New</a>
+<p style="text-align:center;">
+    <a asp-action="Create" style="color:darkblue">Create New</a>
+</p>
+<p style="text-align:center">
+    <a asp-action="Categories" style="color:rebeccapurple">Go to Categories</a>
 </p>
 <table class="table">
     <thead>
@@ -13,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.img)
+              URL to image
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.color)
@@ -27,7 +30,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.category)
             </th>
-            <th></th>
+            <th>
+                Image
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -55,11 +60,17 @@
                 @Html.DisplayFor(modelItem => item.category.id)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                <img src="@Url.Content(item.img)" style="width:100px;height:100px"/>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id" style="color:green">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id" style="color:chocolate">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id" style="color:red">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<p style="text-align:right">
+    <a asp-action="Categories" style="color:rebeccapurple">Go to Categories</a>
+</p>

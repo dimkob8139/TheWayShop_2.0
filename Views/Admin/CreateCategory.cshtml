@@ -1,0 +1,35 @@
+﻿@model TheWayShop_2._0.ViewModels.CategoryViewModel
+
+@ViewBag.Title="CreateCategory"
+
+@using (Html.BeginForm("CreateCategory", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div asp - validation - summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Category.name, "name")<br />
+        @Html.EditorFor(m => m.Category.name, "name")<br />
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Category.description, "description")<br />
+        @Html.EditorFor(m => m.Category.description, "description")<br />
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Category.categoryItemId, "categoryItemId")<br />
+        @Html.EditorFor(m => m.Category.categoryItemId, "categoryItemId")<br />
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Category.categoryItemId, "Select categoryItem")<br />
+        @Html.DropDownListFor(m => m.Category.categoryItemId, ViewBag.CategoryItems as SelectList)<br />
+
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create Category" class="btn btn-primary" />
+    </div>
+
+    <hr />
+
+    @Html.ActionLink("Back to Categories", "Categories", "Admin")
+}
