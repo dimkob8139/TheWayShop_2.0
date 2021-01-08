@@ -165,3 +165,7 @@ C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\De
 C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\DetailsCategory.cshtml.g.cs
 C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\Create.cshtml.g.cs
 C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\CreateCategory.cshtml.g.cs
+C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\Edit.cshtml.g.cs
+C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\EditCategory.cshtml.g.cs
+C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\Delete.cshtml.g.cs
+C:\Users\dimko\source\repos\TheWayShop_2.0\obj\Debug\net5.0\Razor\Views\Admin\DeleteCategory.cshtml.g.cs

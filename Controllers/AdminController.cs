@@ -89,7 +89,7 @@ namespace TheWayShop_2._0.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ThingViewModel tvm)
         {
-            if (tvm.UploadedFile!=null)
+            if (tvm.UploadedFile != null)
             {
                 string path = "/Files" + tvm.UploadedFile.FileName;
                 using (FileStream file = new FileStream(environment.WebRootPath + path, FileMode.Create))
@@ -138,87 +138,185 @@ namespace TheWayShop_2._0.Controllers
         }
 
         // GET: AdminController/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Thing thing = await context.Thing.FirstOrDefaultAsync(p => p.id == id);
+            if (thing == null)
+            {
+                return NotFound();
+            }
+            ViewData["categoryId"] = new SelectList(context.Category, "id", "name", thing.categoryId);
+            return View(thing);
         }
 
         // POST: AdminController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, [Bind("id,name,description,img,color,size,price,categoryId")]Thing thing)
         {
-            try
+            if (id != thing.id)
             {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    context.Thing.Update(thing);
+                    await context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ThingExists(thing.id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            ViewData["categoryId"] = new SelectList(context.Category, "id", "name", thing.categoryId);
+            return View(thing);
         }
 
         // GET: AdminController/Edit/5
-        public ActionResult EditCategory(int id)
+        [HttpGet]
+        public async Task<IActionResult> EditCategory(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Category category = await context.Category.FirstOrDefaultAsync(p => p.id == id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            ViewData["categoryitemId"] = new SelectList(context.CategoryItems, "id", "name", category.categoryItemId);
+            return View(category);
         }
 
         // POST: AdminController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditCategory(int id, IFormCollection collection)
+        public async Task<ActionResult> EditCategory(int id, [Bind("id,name,description,categoryItemId")] Category category)
         {
-            try
+            if (id != category.id)
             {
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            catch
+
+            if (ModelState.IsValid)
             {
-                return View();
+                try
+                {
+                    context.Category.Update(category);
+                    await context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CategoryExists(category.id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Categories));
             }
+            ViewData["categoryItemId"] = new SelectList(context.CategoryItems, "id", "name", category.categoryItemId);
+            return View(category);
         }
 
         // GET: AdminController/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet]
+        [ActionName("Delete")]
+        public async Task<IActionResult> ConfirmDelete(int? id)
         {
-            return View();
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Thing thing = await context.Thing
+                .Include(g => g.category)
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (thing == null)
+            {
+                return NotFound();
+            }
+
+            return View(thing);
         }
 
         // POST: AdminController/Delete/5
         [HttpPost]
+        [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> Delete(int? id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+
+            Thing thing = new Thing { id = id.Value };
+            context.Entry(thing).State = EntityState.Deleted;
+            await context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: AdminController/Delete/5
-        public ActionResult DeleteCategory(int id)
+        [HttpGet]
+        [ActionName("DeleteCategory")]
+        public async Task<IActionResult> ConfirmDeleteCategory(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Category category = await context.Category
+                .Include(g => g.categoryItem)
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            return View(category);
         }
 
         // POST: AdminController/Delete/5
         [HttpPost]
+        [ActionName("DeleteCategory")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteCategory(int id, IFormCollection collection)
+        public async Task<IActionResult> DeleteCategory(int? id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            Category category = new Category { id = id.Value };
+            context.Entry(category).State = EntityState.Deleted;
+            await context.SaveChangesAsync();
+            return RedirectToAction(nameof(Categories));
+        }
+        private bool ThingExists(int id)
+        {
+            return context.Thing.Any(e => e.id == id);
+        }
+
+        private bool CategoryExists(int id)
+        {
+            return context.Category.Any(e => e.id == id);
         }
     }
 }
+
