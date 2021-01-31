@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,7 +34,17 @@ namespace TheWayShop_2._0
 
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddControllersWithViews();
-            
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+               .AddCookie(options =>
+               {
+                   options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                   options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+               });
+            services.AddAuthorization();
+
+
+
 
             services.AddMvc();
 
@@ -64,7 +75,8 @@ namespace TheWayShop_2._0
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthentication();    // аутентификация
+            app.UseAuthorization();     // авторизация
 
             app.UseEndpoints(endpoints =>
             {
